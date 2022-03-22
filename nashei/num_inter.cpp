@@ -13,8 +13,8 @@ int main(){
 
     while (num1 != num2)
     {
-        suma = num1 + 1;
-        cout<<suma<<endl;
+        num1 = num1 + 1;
+        cout<<num1<<endl;
     }
     
     {

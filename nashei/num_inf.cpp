@@ -3,29 +3,20 @@ using namespace std;
 int main(){
     float num;
     int multi;
-    
-    cout<<"ingrese los numeros que quiera"<<endl;
-    cin>>num;
 
-    while (num !=0)
-    {
+    while (num !=0) {
+      
         cout<<"ingrese los numeros que quiera"<<endl;
         cin>>num;
    
-    
         if (num ==0)
         {
-       cout<<"su numero no es valido"<<endl;
-
+          cout<<"su numero no es valido"<<endl;
         }
-     else
+      else
         {
-      multi = num * 2;
-        cout<<multi<<endl;
- 
+          multi = num * 2;
+          cout<<multi<<endl;
         }
-
     }
-    
-
 }
