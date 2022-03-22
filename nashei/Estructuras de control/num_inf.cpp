@@ -13,7 +13,7 @@ int main(){
         {
           cout<<"su numero no es valido"<<endl;
         }
-      else
+        else
         {
           multi = num * 2;
           cout<<multi<<endl;

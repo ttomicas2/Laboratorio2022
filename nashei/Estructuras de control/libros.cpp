@@ -8,18 +8,17 @@ int main(){
     cout<<"ingrese una cantidad de libros"<<endl;
     cin>>libros;
 
-    if (libros>5)
-    {
+    if (libros>5){
         precio = 250;
     }
-    else
-    {
+    else{
         precio = 300;
     }
-    
-    multi = libros * precio;
 
+    multi = libros * precio;
+    
     cout<<multi<<endl;
+
     
 
     
