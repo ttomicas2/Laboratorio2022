@@ -14,5 +14,10 @@ int main(){
         posicion_actual--;
         posicion_letra++;
     }
-    cout<<palabra<<endl;
+    if (palabra == palabra1){
+        cout<<"es capicua"<<endl;
+    }
+    else{
+        cout<<"no es capicua"<<endl;
+    }
 }

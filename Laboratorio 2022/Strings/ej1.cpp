@@ -5,8 +5,7 @@ int main(){
     int posicion_actual = 0;
     cout<<"escriba una palabra"<<endl;
     cin>>palabra;
-    int cant_letras = palabra.size();
-    while (posicion_actual <= cant_letras){
+    while (posicion_actual < palabra.size()){
         cout<<palabra[posicion_actual]<<endl;
         posicion_actual ++;
     }
