@@ -10,5 +10,4 @@ int main(){
     else{
         cout<<"no entra entre los valores pedidos"<<endl;
     }
- 
 }

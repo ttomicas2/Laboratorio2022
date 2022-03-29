@@ -11,14 +11,14 @@ int main(){
         if (ASCII>64 && ASCII<91){
             cout<<"es mayuscula"<<endl;
             contador = 1;
-    }
+        }
         else if (ASCII>96 && ASCII<123){
             cout<<"es minuscula"<<endl;
             contador = 1;
-    }
+        }
         else{
             cout<<"no es una letrarda anashe"<<endl;
-    }    
+        }    
     }
 }    
     

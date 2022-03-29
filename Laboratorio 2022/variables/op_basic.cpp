@@ -15,7 +15,7 @@ int main(){
 
       cout<<"los resultados son"<<endl;
 
-    if (numero1, numero2 != 0)
+    if ( numero2 != 0)
     {
         divi = numero1 / numero2;
         cout<<"division"<<endl;
