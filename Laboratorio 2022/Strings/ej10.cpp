@@ -32,11 +32,6 @@ int main(){
         else{
             posicion_letras = posicion_actual;
         }
-    }    
-    if (correcto != 0){
-        cout<<"La primer palabra entra en la segunda"<<endl;
     }
-    else{
-        cout<<"La primer palabra no entra en la segunda"<<endl;
-    }
+    (correcto != 0)? cout<<"La primer palabra entra en la segunda"<<endl : cout<<"La primer palabra no entra en la segunda"<<endl;  
 }

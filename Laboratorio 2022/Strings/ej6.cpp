@@ -25,10 +25,5 @@ int main(){
         }
         posicion_actual ++;
     }
-    if (letras_correctas == posicion_actual){
-        cout<<"Las palabras son iguales"<<endl;
-    }
-    else{
-        cout<<"Las palabras son distintas"<<endl;
-    }  
+    (letras_correctas == posicion_actual) ? cout<<"Las palabras son iguales"<<endl : cout<<"Las palabras son distintas"<<endl;  
 }
