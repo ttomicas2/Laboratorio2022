@@ -18,30 +18,25 @@ int main(){
     while (posicion_actual < cant_letras2){
         suma = palabra1;
         contador = 0;
-        while (contador < cant_letras1)
-        {
+        while (contador < cant_letras1){
             char letra = palabra2[posicion_letras];
             suma[contador] = letra;
             posicion_letras++;
             contador++;
         }
         posicion_actual++; 
-        if (suma == palabra1)
-        {
+        if (suma == palabra1){
             posicion_actual = posicion_actual + cant_letras2;
             correcto++;
         }
-        else
-        {
+        else{
             posicion_letras = posicion_actual;
         }
     }    
-    if (correcto != 0)
-    {
+    if (correcto != 0){
         cout<<"La primer palabra entra en la segunda"<<endl;
     }
-    else
-    {
+    else{
         cout<<"La primer palabra no entra en la segunda"<<endl;
     }
 }

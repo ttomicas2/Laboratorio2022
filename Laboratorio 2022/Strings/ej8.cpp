@@ -3,7 +3,6 @@ using namespace std;
 int main(){
     string palabra1;
     string palabra2;
-    string suma = "                                                ";
     cout<<"Escriba una palabra"<<endl;
     cin>>palabra1;
     cout<<"Escriba otra palabra de igual longitud"<<endl;
@@ -11,6 +10,7 @@ int main(){
     int posicion_ciclo = 0;
     int posicion_actual = 0;
     int posicion_actual2 = 1;
+    string suma = palabra1 + palabra2;
     if (palabra1.size() == palabra2.size()){
         while (posicion_ciclo < palabra1.size()){
             char letra1 = palabra1[posicion_ciclo];

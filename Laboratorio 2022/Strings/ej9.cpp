@@ -8,7 +8,7 @@ int main(){
     int posicion_actual = palabra.size() -1;
     int posicion_letra = 0;
 
-    while (posicion_actual < palabra.size()){
+    while (posicion_letra < palabra.size()){
         char caracter = palabra1[posicion_actual];
         palabra[posicion_letra] = caracter;
         posicion_actual--;
