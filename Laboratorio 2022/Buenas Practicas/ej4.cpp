@@ -7,16 +7,9 @@ int main(){
     cout<<"escriba un numero"<<endl;
     cin>>n;
     //secuencia de Fibbonacci
-    while (resultado < n && resultado2 < n)
-    {
+    while (resultado < n && resultado2 < n){
         resultado2 = resultado + resultado2;
         resultado = resultado2 + resultado;
     }
-    if (n > resultado2)
-    {
-        cout<<resultado<<endl;      
-    }
-    else{
-    cout<<resultado2<<endl;
-    }
+    (n > resultado2) ? cout<<resultado<<endl : cout<<resultado2<<endl;
 }
