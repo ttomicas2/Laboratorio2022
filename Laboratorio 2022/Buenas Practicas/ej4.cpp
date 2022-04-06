@@ -12,4 +12,11 @@ int main(){
         resultado2 = resultado + resultado2;
         resultado = resultado2 + resultado;
     }
+    if (n > resultado2)
+    {
+        cout<<resultado<<endl;      
+    }
+    else{
+    cout<<resultado2<<endl;
+    }
 }
