@@ -9,10 +9,12 @@ int main(){
     cout<<"ingrese una letra"<<endl;
     cin>>letra;
     int cant_letras = palabra.size();
-    while (cant_letras > posicion_actual)
-    {
-        
+    while (cant_letras > posicion_actual){
+        char caracter = palabra[posicion_actual];
+        posicion_actual++;
+        if (caracter == letra){
+            cout<<"La letra esta en la "<<posicion_actual<<" posicion"<<endl;
+            posicion_actual = 100;
+        }
     }
-    
-
 }

@@ -8,8 +8,7 @@ int main(){
     cout<<"escriba un numero"<<endl;
     cin>>n;
     //secuencia de Fibbonacci
-    if (n > 0)
-    {
+    if (n > 0){
         while (n - 2 > contador ){
             resultado2 = resultado + resultado2;
             resultado = resultado2 + resultado;
@@ -18,11 +17,12 @@ int main(){
         if (n == 1){
             cout<<"1"<<endl;
         }
+        //elegimos cual de los 2 resultados mostrar
         else if (n%2 == 0){
             cout<<resultado<<endl;
         }
         else{
-                cout<<resultado2<<endl;
+            cout<<resultado2<<endl;
         }
     }
     else{

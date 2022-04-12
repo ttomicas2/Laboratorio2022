@@ -4,10 +4,11 @@ int main(){
     string palabra;
     int posicion_actual = 0;
     char caracter;
-    cout<<"escriba una oracion por favor se lo pido"<<endl;
+    cout<<"escriba una oracion con comas"<<endl;
     cin>>palabra;
     int cant_letras = palabra.size();
-    while (posicion_actual <= cant_letras){
+    //verificamos si tiene coma y la cambiamos por un espacio
+    while (posicion_actual < cant_letras){
         caracter = palabra[posicion_actual];
         int ASCII = caracter;
         if (ASCII == 44)
