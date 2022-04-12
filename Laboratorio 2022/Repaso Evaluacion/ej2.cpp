@@ -32,8 +32,8 @@ int main(){
             }
         }
         else{
+            cont_impar++;
             if (impar1 != 0){
-                cont_impar++;
                 impar2 = n2;
                 if (impar1 < impar2){
                     impar1 = impar2;
