@@ -9,8 +9,8 @@ int main(){
     cin>>ruta_archivo;
     archivo.open(ruta_archivo);
     if(archivo.is_open()){
-        while(getline(archivo, frase, ' ')){
-            cout<<frase<<" ";
+        while(getline(archivo, frase)){
+            cout<<frase<<endl;
         }
     }
     archivo.close();
