@@ -18,10 +18,12 @@ int main(){
     archivo3.open("suma.txt");
     if (archivo.is_open() && archivo2.is_open() && archivo3.is_open()){
         while(getline(archivo, frase1) && getline(archivo2, frase2)){
-            if (frase1 != frase2)
-            {
+            if (frase1 != frase2){
                 archivo3<<frase1<<endl<<frase2<<endl;
             }
         }
     }
+    archivo.close();
+    archivo2.close();
+    archivo3.close();
 }
