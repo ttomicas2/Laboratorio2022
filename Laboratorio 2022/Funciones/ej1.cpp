@@ -7,6 +7,6 @@ int menu(int num){
 }
 
 int main(){
-    int num;
+  int num;
   num = menu(num);
 }    
