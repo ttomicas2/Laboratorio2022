@@ -1,12 +1,7 @@
 #include <iostream>
 using namespace std;
 bool divisor(bool es_divisor, int num1, int num2){
-    if( num1 % num2 == 0){
-        es_divisor = true;
-    }
-    else{
-        es_divisor = false;
-    }
+    (num1 % num2 == 0 ) ? es_divisor = true : es_divisor = false;
     return es_divisor;
 }
 int main(){

@@ -5,6 +5,7 @@ void horas_faltantes(int horas, int minutos, int horas_restantes, int minutos_re
         horas_restantes = 12 - horas;
         if(minutos > 5){
             minutos_restantes = 60 - minutos + 5;
+            horas_restantes--;
         }
         else{
             minutos_restantes = 5 - minutos;
@@ -14,6 +15,7 @@ void horas_faltantes(int horas, int minutos, int horas_restantes, int minutos_re
         horas_restantes = 36 - horas;
         if(minutos > 5){
             minutos_restantes = 60 - minutos + 5;
+            horas_restantes--;
         }
         else{
             minutos_restantes = 5 - minutos;
@@ -41,7 +43,7 @@ int main(){
     cin>>horas;
     cout<<"Ingrese los minutos"<<endl;
     cin>>minutos;
-    while(horas >= 24 || minutos >= 60){
+    while(horas > 24 || minutos > 60 || horas < 0 || minutos < 0){
         cout<<"Ingrese una hora valida"<<endl;
         cin>>horas;
         cout<<"Ingrese unos minutos validos"<<endl;

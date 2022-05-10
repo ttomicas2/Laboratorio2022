@@ -17,8 +17,8 @@ int main(){
             archivo.open(ruta_archivo);
             while(getline(archivo, frase)){
             cout<<frase<<endl;
-            archivo.close();
             }
+            archivo.close();
             break;
         case 2:
             remove(ruta_archivo.c_str());
