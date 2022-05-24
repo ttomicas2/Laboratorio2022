@@ -30,24 +30,42 @@ void empezarjuego(string nomusuario, string pregunta, int puntos, char respuesta
         }
     }
 }
-void agregarpuntuacion(int puntosObtenidos, string nombre)
+void agregarpuntuacion(int puntosObtenidos, string nombre, int puntaje, bool respuesta_correcta, int vidas)
 {
+    vidas = 3;
+    puntaje = 0;
+    if (respuesta_correcta = true)
+    {
+        puntaje++;
+    }
+    else
+    {
+        puntaje--;
+        vidas--;
+    }
+    
+    //return puntaje;
 }
 
 void posicionesgenerales()
 {
 }
 
-int puntajepropio(string nombre)
+int puntajepropio(string nombre, bool respuesta_correcta)
 {
-    int puntaje;
+    int puntaje = 0;
+    if (respuesta_correcta = true)
+    {
+        puntaje++;
+    }
+    
 
     return puntaje;
 }
 
 int vidasrestantes(string nombre)
 {
-    int vidas;
+    int vidas = 3;
     ofstream nomout;
     ifstream nombres;
     string nomusuario;
@@ -65,14 +83,12 @@ int vidasrestantes(string nombre)
       
        
     }
-
-    int vidas;
-
-    return vidas = 3;
+    return vidas;
 }
 
 int main()
 {
+    bool respuesta_correcta = true;
     int stop = 1;
     int vidas= 3;
     string nomusuario;
@@ -80,19 +96,17 @@ int main()
     int puntos = 0;
     char respuesta;
     char rtusuario;
-    ifstream p1;
     ifstream nombres;
     int rtint;
     int usint;
-    string nomusuario;
     cin >> nomusuario;
     int numenu;
+    int numpregunta = 1;
     ifstream p1;
     ifstream p2;
     ifstream p3;
     ifstream p4;
 
-    string numenu;
     switch (numenu)
     {
     case 1:
@@ -111,190 +125,195 @@ int main()
     default:
         // cout<<"ingrese una opcion valida"<<endl;
         break;
-    }
-    int stop = 1;
-    int vidas= 3;
-    string nomusuario;
-    string pregunta;
-    int puntos = 0;
-    char respuesta;
-    char rtusuario;
-    ifstream p1;
-    ifstream nombres;
-    int rtint;
-    int usint;
+    }    
     cout << "Ingresa tu nombre" << endl;
     cin >> nomusuario;
     nombres.open("nombres.txt");
     p1.open("1.txt");
-    while (getline(p1, pregunta, '?'))
-    {
-        cout << pregunta << "?" << endl;
-        stop--;
-        while (stop == 0)
+        while (getline(p1, pregunta, '?'))
         {
+            while (vidas =! 0 ){
+            cout << numpregunta <<pregunta  <<". "<< "?" << endl;
             getline(p1, pregunta, '-');
-            cout << "1." << pregunta << endl;
+            cout << pregunta << endl;
             cin >> rtusuario;
             respuesta = 68;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
-            
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "2." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;
             cin >> rtusuario;
             respuesta = 65;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                  cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "3." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;
             cin >> rtusuario;
             respuesta = 67;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
              puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "4." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;
             cin >> rtusuario;
             respuesta = 66;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "5." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;
             cin >> rtusuario;
             respuesta = 68;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "6." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;           
             cin >> rtusuario;
             respuesta = 65;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "7." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;
             cin >> rtusuario;
             respuesta = 65;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "8." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;
             cin >> rtusuario;
             respuesta = 67;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "9." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;
             cin >> rtusuario;
             respuesta = 66;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             getline(p1, pregunta, '-');
-            cout << "10." << pregunta << endl;
+            numpregunta++;
+            cout << numpregunta <<". "<< pregunta << endl;
             cin >> rtusuario;
             respuesta = 68;
             rtint = rtusuario;
             usint = respuesta;
-            if (usint == rtint)
-            {
+            if (usint == rtint){
                 puntos++;
                 cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
             }
-            else
-            {
+            else{
                 vidas--;
                 cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
             }
+            if (vidas =! 0){
+                p1.close();
+            }
             stop++;
-        }
+            }
     }
 }
