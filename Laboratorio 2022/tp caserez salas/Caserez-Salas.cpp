@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <chrono>
+#include <stdio.h>
 using namespace std;
 
 using std::cout; using std::ofstream;
@@ -8,33 +9,42 @@ using std::endl; using std::string;
 
 void mostrarMenu(int numenu){
     //mostrar el menu con las opciones para cuando inicie el juego//terminado
-    cout <<"---------------------------"<<endl
-        <<"|"<< "1. Empezar juego         "<<"|"<< endl
-        << "|"<<"2. Posiciones generales  " <<"|"<< endl
-        << "|"<< "3. Puntaje propio        "<<"|"<<endl
-        << "|"<< "4. salir                 "<<"|"<<endl
-        <<"---------------------------"<<endl;
+    cout <<"||─────────────────────────||"<<endl
+        <<"||"<< " 1. Empezar juego        "<<"||"<< endl
+        << "||"<<" 2. Posiciones generales " <<"||"<< endl
+        << "||"<< " 3. Puntaje propio       "<<"||"<<endl
+        << "||"<< " 4. Salir                "<<"||"<<endl
+        <<"||─────────────────────────||"<<endl;
 }
 
 void empezarJuego(string nomusuario, int vidas, bool name_exist, string namescane){
     //que te asigne vidas si no estas registrado y sino que te ponga las vidas que ya tenias
     ofstream create_name;
     ifstream nombres;
-    
+    string nombre;
+
     cout << "Ingresa tu nombre" << endl;
     cin >> nomusuario;
-    nombres.open("nombres.txt");
-    create_name.open("nombres.txt", std::ios_base::app);
-    if (create_name.is_open()){
-        create_name<<nomusuario<<"."<<vidas<<"."<<endl;
-        create_name.close();
-        getline(nombres, namescane, '.');
+    nombres.open("nombres_prueba.txt");
+    create_name.open("nombres_prueba.txt", std::ios_base::app);
+    while(getline(nombres, namescane, '*')){
         if (namescane == nomusuario){
             name_exist = true;
         }
-          
     }
+        if (name_exist == true){
+            cout<<"Bienvenido devuelta "<< nomusuario<<endl;
+            cout<<"sus vidas son "<<vidas;
+            create_name.close();
+        }
+        else{
+        vidas=3;
+        cout<<"Bienvenido "<<nomusuario<<endl;
+        create_name<<nomusuario<<"*"<<vidas<<".";
+        create_name.close();
+        }      
 }
+
 void agregarPuntuacion(int puntosObtenidos, string nombre, int puntaje, bool respuesta_correcta, int vidas){
     //si suma puntaje o no cuando acierta la pregunta
     puntaje = 0;
@@ -48,8 +58,8 @@ void agregarPuntuacion(int puntosObtenidos, string nombre, int puntaje, bool res
     }
     
 
-    
-}
+}  
+
 
 void posicionesGenerales(){
     //mostrar las 3 mejores posiciones
@@ -68,30 +78,40 @@ int puntajePropio(string nombre, bool respuesta_correcta){
     return puntaje;
 }
 
-int vidasRestantes(string nombre){
-    //mostrar vidas que tiene un jugador con nombre ya guardado
-    int vidas = 3;
+int vidasRestantes(string vidas_string, string namescane){
+    //guardar vidas que tiene un jugador con nombre ya guardado
+    int vidas;
     ofstream nomout;
     ifstream nombres;
     string nomusuario;
-    nombres.open("nombres.txt");
-    while (getline(nombres, nomusuario, '-')){
-      if (nomusuario==nombre){
-        cout<<"bienvenido devuelta"<< nomusuario<<endl;
-        cout<<"sus vidas son"<<vidas;
-      }
-      else{
-        vidas=3;
-        cout<<"bienvenido"<< nomusuario<<endl;
-        nomout<<nomusuario<<"tiene: "<<vidas<<"vidas"<<":"<<endl;
-      }
-      
-       
-    }
-    return vidas;
-}
-
+    int vidas2;
+    
+    rename("nombres_prueba.txt", "nombres_prueba2.txt");
+    nomout.open("nombres_prueba.txt", ios::app);
+    nombres.open("nombres_prueba2.txt");
+    getline(nombres, namescane, '*');
+    getline(nombres, vidas_string, '.');
+    
+    
+        while (getline(nombres, vidas_string, '.')){
+            if (nomusuario != vidas_string){
+                nomout<<vidas_string<<".";
+                vidas = stoi(vidas_string);
+            }
+            else if (nomusuario == vidas_string){
+                nomout<< vidas_string <<"*"<< vidas<<".";
+                getline(nombres, vidas_string, '.'); 
+            }
+            
+        }
+        nombres.close();
+        nomout.close();
+    remove("nombres_prueba2.txt"); 
+    
+    return vidas;  
+} 
 int main() {
+    string vidas_string;
     string namescane;
     int vidas_rest;
     bool name_exist;
@@ -122,10 +142,10 @@ int main() {
         //guardar los nombres puestos por los usuarios
 
         //preguntas
-        cout<<"||-------------------------------------------||"<<endl<<"||"<<"PORFAVOR ESCRIBIR SU RESPUESTA EN MINUSCULA"<<"||"<<endl<<"||-------------------------------------------||"<<endl;
+        cout<<endl<<"||───────────────────────────────────────────||"<<endl<<"||"<<"PORFAVOR ESCRIBIR SU RESPUESTA EN MINUSCULA"<<"||"<<endl<<"||───────────────────────────────────────────||"<<endl;
         while (contador < 10){
             while (getline(p1, pregunta, '?')){
-                cout << numpregunta <<pregunta  <<". "<< "?" << endl;
+                cout <<endl<<numpregunta<<')'<<pregunta<< "?" << endl;
                 getline(p1, pregunta, '*');
                 cout << pregunta << endl;
                 cin >> rtusuario;
@@ -133,34 +153,36 @@ int main() {
                 if (respuesta == rtusuario){
                 if (contador >= 5){
                 puntos = puntos + 3;
-                cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
+                cout <<endl<<"CORRECTO"<<endl<<"|───────────────────|"<<endl<<"| "<<vidas<<" VIDAS RESTANTES"<<" |"<<endl<<"|───────────────────|"<<endl;
                 }
             
                 else{
                 puntos++;
-                cout << "CORRECTO"<<endl<<vidas<<" vidas restantes"<<endl;
+                cout <<endl<<"CORRECTO"<<endl<<"|───────────────────|"<<endl<<"| "<<vidas<<" VIDAS RESTANTES"<<" |"<<endl<<"|───────────────────|"<<endl;
                 }
             }
             else{
                 if (contador >= 5){
                 p1.close();
-                cout<<"perdiste"<<endl;
+                cout<<"Perdiste"<<endl;
                 }   
                 else{
                 vidas--;
-                cout << "INCORRECTO" <<endl<<vidas<<" vidas restantes"<<endl;
+                cout <<endl<<"INCORRECTO" <<endl<<"|───────────────────|"<<endl<<"| "<<vidas<<" VIDAS RESTANTES"<<" |"<<endl<<"|───────────────────|"<<endl;
                 }
             
             }
             if (vidas == 0){
             p1.close();
-            cout<<"perdiste"<<endl;
+            cout<<"Perdiste"<<endl;
             }
         
         contador++;
         numpregunta++;
         }
+        
     }
+    vidasRestantes(vidas_string, namescane);
         break;
     case 2:
         // archivo.open()
