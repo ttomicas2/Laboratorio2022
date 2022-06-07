@@ -8,7 +8,7 @@ A.Christie     B.Rowling     C.Tolkien     D.Brown *c*
 ¿Cuando salio la primer pelicula de Star Wars?
 A.1970     B.1977     C.1980     D.1983 *b*
 ¿Cuantos actores interpretaron el rol de Batman en el cine? 
-A.2     B.3     C.4     D.7a *d*
+A.2     B.3     C.4     D.7 *d*
 ¿Quien hizo el ultimo gol de Argentina en la final del 86? 
 A.Burruchaga     B.Kempes     C.Caniggia     D.Maradona *a*
 ¿En la serie de TV Friends, cual de los personajes principales tenia un doctorado?
