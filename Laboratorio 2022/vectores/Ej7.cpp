@@ -1,43 +1,32 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void mostrar_vector(vector<int>numeros){
+bool esta_en_vector(vector<int>numeros, int numero){
+    bool esta=false;
     for(int i = 0; i < numeros.size(); i++){
-        cout<<numeros[i]<<endl;
+        if(numero == numeros[i]){
+            esta = true;
+        }
     }
+    return esta;
 }
 int main(){
     int numero = 1;
-    int num_menor = 2147483647;
-    int num_mayus;
-    float cont = -1;
-    bool no_esta = false;
+    int numero_anterior;
     vector<int>numeros;
-    vector<int>ordenado;
     while (numero != 0){
-        cout<<"ingrese un numero "<<"cuando quiera la lista ingrese 0"<<endl;
+        cout<<"ingrese numeros en orden de menor a mayor"<<"cuando quiera la lista ingrese 0"<<endl;
         cin>>numero;
-        if (numero != 0){
+        if (numero != 0 && numero > numero_anterior){
         numeros.push_back(numero);
         }
-    }
-    for (int a = 0; cont < numeros.size(); a++){
-        num_menor = 2147483647;
-        no_esta = false;
-        for (int i = 0; i < numeros.size(); i++){
-            if (num_menor > numeros[i]){
-                num_menor = numeros[i];
-            }
-        } 
-        for(int e = 0; e < ordenado.size(); e++){    
-            if (ordenado[e] != num_menor){
-                no_esta = true;
-            }
+        if(numero < numero_anterior){
+            cout<<"Ingrese los numeros en orden"<<endl;
         }
-        if (no_esta = true){
-        ordenado.push_back(num_menor);
-        }
-        mostrar_vector(ordenado);
-        cont++; 
+        numero_anterior = numero;
     }
+    cout<<"Ingrese un numero entero"<<endl;
+    cin>>numero;
+    bool esta = esta_en_vector(numeros, numero);
+    (esta == true)? cout<<"true"<<endl : cout<<"False"<<endl; 
 }
