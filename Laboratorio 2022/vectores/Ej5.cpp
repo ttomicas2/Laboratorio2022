@@ -6,10 +6,24 @@ void mostrar_vector(vector<int>numeros){
         cout<<numeros[i]<<endl;
     }
 }
+void suma(vector<int>numbers, vector<int>numbers2){
+    vector<int>numbers3;
+    int num3;
+    if (numbers.size() != numbers2.size()){
+        cout<<"los vectores son de distinto tamaño"<<endl;
+    }
+    else if (numbers.size() == numbers2.size()){
+        for (int i = 0; i < numbers.size(); i++){
+            num3 = numbers[i] + numbers2[i];
+            numbers3.push_back(num3);
+        }
+        cout<<"El tamañardo de los vectorardos es acordardo mensardo, esta es la suma de los vectorardos anashe jiji"<<endl;
+        mostrar_vector(numbers3);
+    }
+}
 int main(){
     int num1;
     int num2;
-    int num3;
     vector<int>numbers;
     vector<int>numbers2;
     
@@ -27,16 +41,5 @@ int main(){
             numbers2.push_back(num2);
         }
     }
-    vector<int>numbers3;
-    if (numbers.size() != numbers2.size()){
-        cout<<"los vectores son de distinto tamaño"<<endl;
-    }
-    else if (numbers.size() == numbers2.size()){
-        for (int i = 0; i < numbers.size(); i++){
-            num3 = numbers[i] + numbers2[i];
-            numbers3.push_back(num3);
-        }
-        cout<<"El tamañardo de los vectorardos es acordardo mensardo, esta es la suma de los vectorardos anashe jiji"<<endl;
-        mostrar_vector(numbers3);
-    }
+    suma(numbers, numbers2);
 }

@@ -6,13 +6,26 @@ void mostrar_vector(vector<int>numeros){
         cout<<numeros[i]<<endl;
     }
 }
+void rotar_vector(vector<int>numeros){
+    vector<int>rotado;
+    int entero;
+    cout<<"Ingrese un numero"<<endl;
+    cin>>entero;
+    int entero2 = entero;
+    while(entero < numeros.size()){
+        rotado.push_back(numeros[entero]);
+        entero++;
+    }
+    for(int i = 0; i < entero2; i++){
+        rotado.push_back(numeros[i]);
+    }
+    mostrar_vector(rotado);
+}
 int main(){
     vector<int>numeros;
     vector<int>rotado;
     int numero = 1;
-    int entero;
     int numero_anterior = 0;
-    int vector_size;
     while (numero != 0){
         cout<<"ingrese numeros en orden de menor a mayor"<<"cuando quiera la lista ingrese 0"<<endl;
         cin>>numero;
@@ -24,15 +37,5 @@ int main(){
         }
         numero_anterior = numero;
     }
-    cout<<"Ingrese un numero"<<endl;
-    cin>>entero;
-    while (entero > 0){
-        vector_size = numeros.size() - 1;
-        while(vector_size >= 0){
-            rotado.push_back(numeros[vector_size]);
-            vector_size--;
-        }
-        entero--;
-    }
-    mostrar_vector(rotado);
+    rotar_vector(numeros);
 }

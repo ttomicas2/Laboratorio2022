@@ -6,12 +6,9 @@ void mostrar_vector(vector<int>numeros){
         cout<<numeros[i]<<endl;
     }
 }
-int main(){
+void factores(int entero){
     vector<int>factores;
-    int entero = 1;
     int primo;
-    cout<<"Ingrese un numero"<<endl;
-    cin>>entero;
     for(int numero = 1; numero <= entero; numero++){
         primo = 0;
         for(int i = 1; i <= numero; i++){
@@ -26,4 +23,10 @@ int main(){
         }
     }
     mostrar_vector(factores);
+}
+int main(){
+    int entero ;
+    cout<<"Ingrese un numero"<<endl;
+    cin>>entero;
+    factores(entero);
 }
