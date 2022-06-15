@@ -8,14 +8,32 @@ void mostrar_vector(vector<int>numeros){
 }
 void concatenacion(vector<int>numeros, vector<int>numeros2){
     vector<int>concate;
-    for(int foda = 0; foda <numeros.size() || foda < numeros2.size(); foda++){
-        if (numeros[foda] <= numeros2[foda]){
-            concate.push_back(numeros[foda]);
-            concate.push_back(numeros2[foda]);
+    int i = 0;
+    int e = 0;
+    while(i <numeros.size() || e < numeros2.size()){
+        if (numeros[i] <numeros2[e]){
+            concate.push_back(numeros[i]);
+            i++;
         }
-        else if(numeros2[foda] < numeros[foda] ){
-            concate.push_back(numeros2[foda]);
-            concate.push_back(numeros[foda]);
+        else if(numeros[i] == numeros2[e]){
+            concate.push_back(numeros[i]);
+            concate.push_back(numeros2[e]);
+        }
+        else{
+            concate.push_back(numeros2[e]);
+            e++;
+        }
+        if(e >= numeros2.size()){
+            while(i < numeros.size()){
+                concate.push_back(numeros[i]);
+                i++;
+            }
+        }
+        if(i >= numeros.size()){
+            while(e < numeros.size()){
+                concate.push_back(numeros2[e]);
+                e++;
+            }
         }
     }
     mostrar_vector(concate);
