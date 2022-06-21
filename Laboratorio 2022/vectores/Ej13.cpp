@@ -6,7 +6,7 @@ void mostrar_vector(vector<int>numeros){
         cout<<numeros[i]<<endl;
     }
 }
-void rotar_vector(vector<int>numeros){
+void rotar_vector(vector<int>numeros, int entero){
     vector<int>rotado;
     int entero2 = entero;
     while(entero < numeros.size()){
