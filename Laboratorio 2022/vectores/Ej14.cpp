@@ -1,21 +1,24 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-void triangulares(vector<int>numeros){
+bool triangulares(vector<int>numeros, bool triangular){
     if(numeros[0] < (numeros[1] + numeros[2]) && numeros[1] < (numeros[0] + numeros[2]) && numeros[2] < (numeros[0] + numeros[1])){
-        cout<<"Los numeros son triangulares"<<endl;
+        triangular = true;
     }
     else{
-        cout<<"NO son traingulares"<<endl;
+        triangular = false;
     }
+    return triangular;
 }
 int main(){
     vector<int>numeros;
     int num;
+    bool triangular;
     for(int i = 0; i < 3; i++){
     cout<<"Escriba un numero que quiera ingresar en el vector"<<endl;
     cin>>num;
     numeros.push_back(num);
     }
-    triangulares(numeros);
+    triangular=triangulares(numeros, triangular);
+    (triangular == true)? cout<<"Los numeros son triangulares"<<endl : cout<<"NO son traingulares"<<endl;
 }
