@@ -8,9 +8,6 @@ void mostrar_vector(vector<int>numeros){
 }
 void rotar_vector(vector<int>numeros){
     vector<int>rotado;
-    int entero;
-    cout<<"Ingrese un numero"<<endl;
-    cin>>entero;
     int entero2 = entero;
     while(entero < numeros.size()){
         rotado.push_back(numeros[entero]);
@@ -37,5 +34,8 @@ int main(){
         }
         numero_anterior = numero;
     }
-    rotar_vector(numeros);
+    int entero;
+    cout<<"Ingrese un numero"<<endl;
+    cin>>entero;
+    rotar_vector(numeros, entero);
 }

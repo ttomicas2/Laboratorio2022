@@ -16,7 +16,7 @@ void factores(int entero){
                 primo++;
             }
         }
-        if (primo == 2){
+        if (primo == 2){ 
             if(entero%numero == 0){
                 factores.push_back(numero);
             }
