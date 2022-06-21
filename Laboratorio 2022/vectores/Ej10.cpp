@@ -6,7 +6,7 @@ void mostrar_vector(vector<int>numeros){
         cout<<numeros[i]<<endl;
     }
 }
-void ordenar(vector<int>numeros){
+vector<int>ordenar(vector<int>numeros){
     vector<int>ordenado;
     for(int i = 0; i < numeros.size(); i++){
         if(numeros[i] == 1){
@@ -23,11 +23,11 @@ void ordenar(vector<int>numeros){
             ordenado.push_back(numeros[i]);
         }
     }
-    mostrar_vector(ordenado);
+    return ordenado;
 }
 int main(){
     vector<int>numeros;
-    int numero;
+    int numero = 1;
     while (numero != 0){
         cout<<"ingrese un numero entre 1 y 3 o ingrese 0 para parar"<<endl;
         cin>>numero;
@@ -38,5 +38,5 @@ int main(){
             cout<<"ingrese un valido"<<endl;
         }
     }
-    ordenar(numeros);
+    mostrar_vector(ordenar(numeros));
 }
