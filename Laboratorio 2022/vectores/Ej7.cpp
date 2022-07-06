@@ -28,5 +28,5 @@ int main(){
     cout<<"Ingrese un numero entero"<<endl;
     cin>>numero;
     bool esta = esta_en_vector(numeros, numero);
-    (esta == true)? cout<<"true"<<endl : cout<<"False"<<endl; 
+    (esta == true)? cout<<"True"<<endl : cout<<"False"<<endl; 
 }
