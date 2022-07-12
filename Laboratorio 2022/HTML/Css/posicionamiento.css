@@ -1,0 +1,31 @@
+.box{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: red;
+    color: white;
+}
+/* #two{
+    position: absolute;
+    top: 20px;
+    left:20px;
+    background: blue;
+} */
+#two{
+    position: relative;
+    top: 20px;
+    left:20px;
+    background: blue;
+}
+#unoFixed {
+    position: fixed;
+    top: 80px;
+    left: 10px;
+    background: blue;
+}
+.outer {
+    width: 500px;
+    height: 300px;
+    overflow: scroll;
+    padding-left: 150px;
+  }

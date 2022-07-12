@@ -1,0 +1,14 @@
+#paginacion{
+    width: 98%;
+    margin-left: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border: 1px solid gray;
+    background-color: #C3C3C3;
+}
+.izquierda{
+    margin-left: 1%;
+    margin-right: 84%;
+}
+
+.clear{width: 50%;}
