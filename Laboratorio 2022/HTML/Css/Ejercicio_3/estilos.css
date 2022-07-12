@@ -12,10 +12,11 @@ ul.menu li {
   background: #F4F4F4;
   background-image: url(flecha_inactiva.png);
   background-repeat: no-repeat;
-  cursor: crosshair;
+  cursor: url(index.png),progress;
 }
 ul.menu li:hover{
   background-image: url(flecha_activa.png);
   background-repeat: no-repeat;
   background-color: #E4E4E4;
 }
+a{  cursor: url(index.png),progress;}
