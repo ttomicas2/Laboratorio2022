@@ -9,8 +9,10 @@ void crearCuenta()
     string nombre;
     int dni;
     int numeroIdentificacion = 0;
+    int codigo_seguridad;
     int elevado = 0;
     vector<int>numeroId;
+    vector<int>cod_seguridad;
     int i = 0;
     int random;
     ofstream registroEscritura;
@@ -40,6 +42,26 @@ void crearCuenta()
             cout<<"Ingrese dni"<<endl;
             cin>>dni;
             while (i<8)
+            {
+                randomEsta = false;
+                random = rand()%(10-1)+1;
+                for ( int e = 0; e < numeroId.size(); e++)
+                {
+                    if(random == numeroId[e]){
+                        randomEsta=true;
+                    }
+                }
+                if( randomEsta == false){
+                    numeroId.push_back(random);
+                    i++;
+                }
+            }
+            for(int g = 0; g < numeroId.size(); g++){
+                elevado = pow(10,g);
+                numeroIdentificacion= numeroIdentificacion + numeroId[g]*elevado;
+            }
+            i = 0;
+            while (i<3)
             {
                 randomEsta = false;
                 random = rand()%(10-1)+1;
