@@ -8,21 +8,18 @@ struct Alumno{
     vector<float>notas;
 };
 
-float avg(vector<float>notas){
-    float promedio = 0;
-    int prom= 0;
-    for(int i = 0; i < notas.size(); i++){
-        promedio += notas[i];
-        prom++;
-    }
-    promedio= promedio/prom;
-    return promedio;
-}
-
 vector<Alumno>llenar(vector<Alumno>Alumnos){
     Alumno A1;
     float nota;
-    for(int i = 0; i < 3; i++){
+    int cant_alumnos = 0;
+    while(cant_alumnos <= 0){
+        cout<<"Cuantos alumnos quiere ingresar"<<endl;
+        cin>> cant_alumnos;
+        if(cant_alumnos <= 0){
+            cout<<"Ingrese una opcion valida"<<endl;
+        }
+    }
+    for(int i = 0; i < cant_alumnos; i++){
         nota = 1;
         A1.edad=-1;
         cout<<"Ingrese nombre"<<endl;
@@ -48,26 +45,31 @@ vector<Alumno>llenar(vector<Alumno>Alumnos){
     return Alumnos;
 }
 
-void mostrar(vector<Alumno>Alumnos){
-    float promedio;
-    float promedio_alto = 0;
-    string nombre_alto;
-    string apellido_alto;
+void mostrar (vector<Alumno>Alumnos){
+    float nota_alta = 0;
+    int edad;
+    bool hay_edad = false;
+    cout<<"Ingrese una edad"<<endl;
+    cin>>edad;
     for(int i = 0; i < Alumnos.size(); i++){
-        promedio = avg(Alumnos[i].notas);
-        if(promedio > promedio_alto){
-            if(promedio == promedio_alto || i == 0){
-                int ASCII_alto = apellido_alto[0];
-                int ASCII = Alumnos[i].apellido[0];
-                if(ASCII < ASCII_alto || i == 0){
-                apellido_alto = Alumnos[i].apellido;
-                nombre_alto = Alumnos[i].nombre;
+        if(Alumnos[i].edad == edad){
+            for(int e = 0; e < Alumnos[i].notas.size(); e++){
+                if(Alumnos[i].notas[e] > nota_alta){
+                    nota_alta = Alumnos[i].notas[e];
                 }
             }
-            promedio_alto = promedio;
+            hay_edad=true;
         }
     }
-    cout<<"Promedio mas alto:"<<promedio_alto<<endl<<"Nombre:"<<nombre_alto<<endl<<"Apellido:"<<apellido_alto<<endl;
+    if(hay_edad == true && nota_alta != 0){
+    cout<<"La nota mas alta de esa edad es: "<<nota_alta<<endl;
+    }
+    else if(hay_edad == false){
+        cout<<"No hay alumnos con esa edad"<<endl;
+    }
+    else{
+        cout<<"No hay notas con esa edad"<<endl;
+    }
 
 }
 
