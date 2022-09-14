@@ -50,12 +50,12 @@ void elementosComun(vector<vector<int>>matriz, vector<int>vector){
     for(int i= 0; i < 4; i++){
         acertadas = 0;
         for(int e = 0; e < 4; e++){
-            if(matriz[i][e] == vector[e]){
+            if(matriz[e][i] == vector[e]){
                 acertadas++;
             }
         }
         if(acertadas == 4){
-            cout<<"La fila "<<i+1<<" es igual al vector"<<endl;
+            cout<<"La columna "<<i+1<<" es igual al vector"<<endl;
             iguales = true;
         }
     }
