@@ -157,14 +157,14 @@ void eliminar_empleado( vector<vector<int>>&matriz, vector<empleado>&empleados){
     cin>>dni;
     for(int i = 0; i < matriz.size(); i++){
         if(dni == matriz[i][0]){
-            matriz.erase(matriz.end() - (matriz.end() - i));
+            matriz.erase(matriz.end() - (matriz.size() - i - 1));
             esta = true;
         }
     }
     if(esta == true){
         for(int i = 0; i < empleados.size(); i++){
             if(dni == empleados[i].dni){
-                empleados.erase(empleados.end() - (empleados.end() - i));
+                empleados.erase(empleados.end() - (empleados.size() - i - 1));
             }
         }
     }
