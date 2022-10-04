@@ -141,6 +141,7 @@ void modificar_empleado( vector<vector<int>>&matriz, vector<empleado>&empleados)
         case 5:
             cout<<"Ingresar localidad"<<endl;
             cin>>empleados[posicion].localidad;
+            break;
         case 6:
             cout<<"Ingrese dni"<<endl;
             cin>>empleados[posicion].dni;
@@ -165,14 +166,14 @@ void eliminar_empleado( vector<vector<int>>&matriz, vector<empleado>&empleados){
     cin>>dni;
     for(int i = 0; i < matriz.size(); i++){
         if(dni == matriz[i][0]){
-            matriz.erase(matriz.end() - (matriz.size() - i - 1));
+            matriz.erase(matriz.end() - (matriz.size() - i - 1) - 1);
             esta = true;
         }
     }
     if(esta == true){
         for(int i = 0; i < empleados.size(); i++){
             if(dni == empleados[i].dni){
-                empleados.erase(empleados.end() - (empleados.size() - i - 1));
+                empleados.erase(empleados.end() - (empleados.size() - i - 1) -1);
             }
         }
     }
@@ -284,14 +285,14 @@ void eliminar_producto( vector<vector<int>>&matriz, vector<producto>&productos){
         for(int j = 0; j < matriz[i].size(); j++ ){
             if(codigo == matriz[i][j]){
                 esta = true;
-                matriz[i].erase(matriz[i].end() - (matriz[i].size() - j - 1));
+                matriz[i].erase(matriz[i].end() - (matriz[i].size() - j - 1)-1);
             }
         }
     }
     if(esta == true){
         for(int i = 0; i < productos.size(); i++){
             if(codigo == productos[i].codigo){
-                productos.erase(productos.end() - (productos.size() - i - 1));
+                productos.erase(productos.end() - (productos.size() - i - 1)-1);
             }
         }
     }
@@ -484,9 +485,9 @@ int main(){
         bool salir = false;
         while(!salir){
             cout<<"Ingrese:"<<endl;
-            cout<<"1. Para dar de alta un empleado"<<endl;
-            cout<<"2. para eliminar un empleado"<<endl;
-            cout<<"3. modificar un empleado"<<endl;
+            cout<<"1. para dar de alta un empleado"<<endl;
+            cout<<"2. para modificar un empleado"<<endl;
+            cout<<"3. para eliminar un empleado"<<endl;
             cout<<"4. salir"<<endl;
             cin>>caso;
             switch(caso){
