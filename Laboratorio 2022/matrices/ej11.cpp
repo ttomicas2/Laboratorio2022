@@ -27,6 +27,13 @@ struct producto{
     int codigo;
     int cant_vendida;   
 };
+
+struct Tienda{
+    vector<vector<int>>matriz;
+    vector<empleado>empleados;
+    vector<producto>productos;
+};
+
 void mostrar (vector<vector<int>>mat){
     for(int i = 0; i < mat.size(); i++){
         for(int j = 0; j < mat[i].size(); j++){
@@ -427,9 +434,7 @@ void edad(vector<vector<int>>&matriz, vector<empleado>&empleados){
 }
 
 int main(){
-    vector<vector<int>>matriz;
-    vector<empleado>empleados;
-    vector<producto>productos;
+    Tienda t;
     int menu = 0;
     bool salir = false;
     while(!salir){
@@ -457,13 +462,13 @@ int main(){
             cin>>caso;
             switch(caso){
                 case 1:
-                    nuevo_producto(matriz, productos);
+                    nuevo_producto(t.matriz, t.productos);
                     break;
                 case 2:
-                    eliminar_producto(matriz, productos);
+                    eliminar_producto(t.matriz, t.productos);
                     break;
                 case 3:
-                    modificar_producto(matriz, productos);
+                    modificar_producto(t.matriz, t.productos);
                     break;
                 case 4:
                     salir = true;
@@ -486,13 +491,13 @@ int main(){
             cin>>caso;
             switch(caso){
                 case 1:
-                    nuevo_empleado(empleados, matriz);
+                    nuevo_empleado(t.empleados, t.matriz);
                     break;
                 case 2:
-                    modificar_empleado(matriz, empleados);
+                    modificar_empleado(t.matriz, t.empleados);
                     break;
                 case 3:
-                    eliminar_empleado(matriz, empleados);
+                    eliminar_empleado(t.matriz, t.empleados);
                     break;
                 case 4:
                     salir = true;
@@ -504,19 +509,19 @@ int main(){
         }
         break;}
     case 3:
-        promedio(matriz, productos);
+        promedio(t.matriz, t.productos);
         break;
     case 4:
-        mayor_antiguedad(matriz, empleados);
+        mayor_antiguedad(t.matriz, t.empleados);
         break;
     case 5:
-        producto_vendido(matriz, productos);
+        producto_vendido(t.matriz, t.productos);
         break;
     case 6:
-        nombre_codigo(matriz, empleados);
+        nombre_codigo(t.matriz, t.empleados);
         break;
     case 7:
-        edad(matriz, empleados);
+        edad(t.matriz, t.empleados);
         break;
     case 8:
         salir = true;
