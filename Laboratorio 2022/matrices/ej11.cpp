@@ -5,11 +5,11 @@ using namespace std;
 struct posmat{
     int x;
     int y;
-}
+};
 struct fecha{
-    int dia;
-    int mes;
-    int año;
+    int dia = 0;
+    int mes = 0;
+    int año = 0;
 };
 
 struct empleado{
@@ -137,7 +137,8 @@ void modificar_empleado( vector<vector<int>>&matriz, vector<empleado>&empleados)
         case 6:
             cout<<"Ingrese dni"<<endl;
             cin>>empleados[posicion].dni;
-            matriz[p][0]=empleados[posicion].dni
+            matriz[p][0]=empleados[posicion].dni;
+            break;
         default:
             cout<<"El numero no es valido"<<endl;
             break;
@@ -182,6 +183,7 @@ void eliminar_empleado( vector<vector<int>>&matriz, vector<empleado>&empleados){
 void nuevo_producto(vector<vector<int>>&matriz, vector<producto>&productos){
     producto producto_variable;
     vector<int>v1;
+    int dni;
     cout<<"ingrese la cantidad vendida del producto"<<endl;
     cin>> producto_variable.cant_vendida;
     cout<<"ingrese el codigo del producto"<<endl;
@@ -190,8 +192,13 @@ void nuevo_producto(vector<vector<int>>&matriz, vector<producto>&productos){
     cin>> producto_variable.precio_compra;
     cout<<"ingrese precio de venta del producto"<<endl;
     cin>> producto_variable.precio_venta;
-    v1.push_back(producto_variable.codigo);
-    matriz.push_back(v1);
+    cout<<"Ingrese el dni de un vendedor"<<endl;
+    cin>>dni;
+    for(int i = 0; i < matriz.size(); i++){
+        if(matriz[i][0] == dni){
+            matriz[i].push_back(producto_variable.codigo);
+        }
+    }
     productos.push_back(producto_variable);
     mostrar(matriz);
     mostrar_productos(productos);
@@ -277,7 +284,7 @@ void eliminar_producto( vector<vector<int>>&matriz, vector<producto>&productos){
     if(esta == true){
         for(int i = 0; i < productos.size(); i++){
             if(codigo == productos[i].codigo){
-                productos.erase(productos.end() - (productos.end() - i));
+                productos.erase(productos.end() - (productos.size() - i - 1));
             }
         }
     }
@@ -300,8 +307,123 @@ void promedio(vector<vector<int>>&matriz, vector<producto>&productos){
     cout<<"La ganancia promedio es: "<<prom/vueltas<<endl;
 }
 
-void mayor_antiguedad(vector<vector<int>>&matriz, vector<producto>&productos){
+void mayor_antiguedad(vector<vector<int>>&matriz, vector<empleado>&empleados){
+    fecha fecha_chica;
+    fecha_chica.año = 2147483640;
+    fecha_chica.mes = 2147483640;
+    fecha_chica.dia = 2147483640;
+    string nombre;
+    for(int i = 0; i < empleados.size(); i++){
+        if(empleados[i].fecha_ingreso.año < fecha_chica.año){
+            nombre = empleados[i].nombre;
+            fecha_chica.año = empleados[i].fecha_ingreso.año;
+            fecha_chica.mes = empleados[i].fecha_ingreso.mes;
+            fecha_chica.dia = empleados[i].fecha_ingreso.dia;
+            nombre = empleados[i].nombre;
+        }
+        if(empleados[i].fecha_ingreso.año == fecha_chica.año){
+            if(fecha_chica.mes > empleados[i].fecha_ingreso.mes){
+                fecha_chica.año = empleados[i].fecha_ingreso.año;
+                fecha_chica.mes = empleados[i].fecha_ingreso.mes;
+                fecha_chica.dia = empleados[i].fecha_ingreso.dia;
+                nombre = empleados[i].nombre;
+            }
+            if(empleados[i].fecha_ingreso.mes == fecha_chica.mes){
+                if(empleados[i].fecha_ingreso.dia < fecha_chica.dia){
+                    fecha_chica.año = empleados[i].fecha_ingreso.año;
+                    fecha_chica.mes = empleados[i].fecha_ingreso.mes;
+                    fecha_chica.dia = empleados[i].fecha_ingreso.dia;
+                    nombre = empleados[i].nombre;
+                }
+            }
+        }
+    }
+    cout<<"el empleado con mayor antiguedad es "<<nombre<<" y empezo en "<<fecha_chica.dia<<"/"<<fecha_chica.mes<<"/"<<fecha_chica.año<<endl;
+}
 
+void producto_vendido (vector<vector<int>>&matriz, vector<producto>&productos){
+    int codigo_vendido = 0;
+    int cant_vendida = 0;
+    for(int i = 0; i < productos.size(); i++){
+        if(cant_vendida < productos[i].cant_vendida){
+            codigo_vendido = productos[i].codigo;
+            cant_vendida = productos[i].cant_vendida;
+        }
+    }
+    cout<<"Codigo del producto mas vendido: "<<codigo_vendido<<" con "<<cant_vendida<<" vendidas"<<endl;
+}
+
+void nombre_codigo (vector<vector<int>>&matriz, vector<empleado>&empleados){
+    for(int i = 0; i < matriz.size(); i++){
+        cout<<"dni: "<<matriz[i][0]<<endl;
+        for(int j = 0; j < empleados.size(); j++){
+            if(matriz[i][0] == empleados[j].dni){
+                cout<<"nombre: "<<empleados[j].nombre<<endl;
+            }
+        }
+        cout<<"codigo producto: "<<matriz[i][matriz.size() - 1]<<endl;
+        
+    }
+}
+
+void edad(vector<vector<int>>&matriz, vector<empleado>&empleados){
+    fecha fecha_chica;
+    fecha fecha_grande;
+    fecha_grande.año = 2147483640;
+    fecha_grande.mes = 2147483640;
+    fecha_grande.dia = 2147483640;
+    string nombre_chico;
+    string nombre_grande;
+    for(int i = 0; i < empleados.size(); i++){
+        if(empleados[i].fecha_nacimiento.año > fecha_chica.año){
+            nombre_chico = empleados[i].nombre;
+            fecha_chica.año = empleados[i].fecha_nacimiento.año;
+            fecha_chica.mes = empleados[i].fecha_nacimiento.mes;
+            fecha_chica.dia = empleados[i].fecha_nacimiento.dia;
+        }
+        if(empleados[i].fecha_nacimiento.año == fecha_chica.año){
+            if(fecha_chica.mes < empleados[i].fecha_nacimiento.mes){
+                fecha_chica.año = empleados[i].fecha_nacimiento.año;
+                fecha_chica.mes = empleados[i].fecha_nacimiento.mes;
+                fecha_chica.dia = empleados[i].fecha_nacimiento.dia;
+                nombre_chico = empleados[i].nombre;
+            }
+            if(empleados[i].fecha_nacimiento.mes == fecha_chica.mes){
+                if(empleados[i].fecha_nacimiento.dia > fecha_chica.dia){
+                    fecha_chica.año = empleados[i].fecha_nacimiento.año;
+                    fecha_chica.mes = empleados[i].fecha_nacimiento.mes;
+                    fecha_chica.dia = empleados[i].fecha_nacimiento.dia;
+                    nombre_chico = empleados[i].nombre;
+                }
+            }
+        }
+    }
+    for(int i = 0; i < empleados.size(); i++){
+        if(empleados[i].fecha_nacimiento.año < fecha_grande.año){
+            nombre_grande = empleados[i].nombre;
+            fecha_grande.año = empleados[i].fecha_nacimiento.año;
+            fecha_grande.mes = empleados[i].fecha_nacimiento.mes;
+            fecha_grande.dia = empleados[i].fecha_nacimiento.dia;
+        }
+        if(empleados[i].fecha_nacimiento.año == fecha_grande.año){
+            if(fecha_grande.mes > empleados[i].fecha_nacimiento.mes){
+                fecha_grande.año = empleados[i].fecha_nacimiento.año;
+                fecha_grande.mes = empleados[i].fecha_nacimiento.mes;
+                fecha_grande.dia = empleados[i].fecha_nacimiento.dia;
+                nombre_grande = empleados[i].nombre;
+            }
+            if(empleados[i].fecha_nacimiento.mes == fecha_grande.mes){
+                if(empleados[i].fecha_nacimiento.dia < fecha_grande.dia){
+                    fecha_grande.año = empleados[i].fecha_nacimiento.año;
+                    fecha_grande.mes = empleados[i].fecha_nacimiento.mes;
+                    fecha_grande.dia = empleados[i].fecha_nacimiento.dia;
+                    nombre_grande = empleados[i].nombre;
+                }
+            }
+        }
+    }
+    cout<<"el empleado con menor edad es "<<nombre_chico<<" y nacio en "<<fecha_chica.dia<<"/"<<fecha_chica.mes<<"/"<<fecha_chica.año<<endl;
+    cout<<"el empleado con mayor edad es "<<nombre_grande<<" y nacio en "<<fecha_grande.dia<<"/"<<fecha_grande.mes<<"/"<<fecha_grande.año<<endl;
 }
 
 int main(){
@@ -385,16 +507,16 @@ int main(){
         promedio(matriz, productos);
         break;
     case 4:
-
+        mayor_antiguedad(matriz, empleados);
         break;
     case 5:
-
+        producto_vendido(matriz, productos);
         break;
     case 6:
-
+        nombre_codigo(matriz, empleados);
         break;
     case 7:
-
+        edad(matriz, empleados);
         break;
     case 8:
         salir = true;
