@@ -1,0 +1,10 @@
+
+;tadeo;14;
+;manuel;3;
+;caz;2;
+;pato;0;
+;enso;1;
+;manso;0;
+;menso;0;
+;a;0;
+;tade;0;
