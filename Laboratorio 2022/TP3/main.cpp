@@ -120,6 +120,7 @@ void borrarPartida (string nombre){
     registroEscritura.open(ruta_archivo, ios::app);
     registroLectura.open(nuevo_nombre);
     while (getline(registroLectura, linea, ':')){
+        getline(registroLectura, linea, ':');
         if(linea==nombre) {
             for(int i = 0; i<=15; i++){
                 getline(registroLectura, linea);
@@ -127,6 +128,10 @@ void borrarPartida (string nombre){
         }
         else{
             registroEscritura << ":" << linea << ":";
+            for(int i = 0; i<=15; i++){
+                getline(registroLectura, linea);
+                registroEscritura << linea << endl;
+            }
         }
     }
     registroLectura.close();
@@ -173,10 +178,16 @@ string juego(vector<vector<int>>&matriz, string nombreUsuario, string nombreUsua
     int jugadorGanador = 0;
     string seguir;
     while(!cuatroEnLinea(matriz, jugadorGanador)){
+        seguir = "ASheeee";
         mostrarTablero(matriz);
-        int columna;
-        cout<<"Es el turno de "<<nombreUsuario<<endl;
-        cin>>columna;
+        int columna=0;
+        while(columna>15 || columna < 1){
+            cout<<"Es el turno de "<<nombreUsuario<<endl;
+            cin>>columna;
+            if(columna>15 || columna < 1){
+                cout<<"Ingrese un numero valido"<<endl;
+            }
+        }
         for(int i = 14; i>=0 ; i--){
             if(matriz[i][columna-1]==0){
                 matriz[i][columna-1]=1;
@@ -185,19 +196,33 @@ string juego(vector<vector<int>>&matriz, string nombreUsuario, string nombreUsua
         }
         if(!cuatroEnLinea(matriz, jugadorGanador)){
             mostrarTablero(matriz);
-            cout<<"Es el turno de "<<nombreUsuario2<<endl;
-            cin>>columna;
+            columna=0;
+            while(columna>15 || columna < 1){
+                cout<<"Es el turno de "<<nombreUsuario2<<endl;
+                cin>>columna;
+                if(columna>15 || columna < 1){
+                    cout<<"Ingrese un numero valido"<<endl;
+                }
+            }
             for(int i = 14; i>=0 ; i--){
                 if(matriz[i][columna-1]==0){
                     matriz[i][columna-1]=2;
                     i = -1;
                 }
             }
-            cout<<"¿Quieren seguir jugando?(S/N)"<<endl;
-            cin>>seguir;
-            if(seguir == "N" || seguir == "n") {
-                return seguir;
-            } 
+            if(!cuatroEnLinea(matriz, jugadorGanador)){
+                mostrarTablero(matriz);
+                while(seguir[0] != 'S' && seguir[0] != 's' && seguir[0] != 'N' && seguir[0] != 'n'){
+                    cout<<"¿Quieren seguir jugando?(S/N)"<<endl;
+                    cin>>seguir;
+                    if(seguir[0] == 'N' || seguir[0] == 'n') {
+                        return seguir;
+                    } 
+                    if(seguir[0] != 'S' && seguir[0] != 's' && seguir[0] != 'N' && seguir[0] != 'n'){
+                        cout<<"Ingrese una opcion valida"<<endl;
+                    }
+                }
+            }
         }
     }
     mostrarTablero(matriz);
@@ -229,9 +254,11 @@ bool chequear(string nombre){
     string linea;
     archivo.open("usuarios.txt");
     while(getline(archivo, linea, ';')) {
+        getline(archivo, linea, ';');
         if(linea == nombre){
             return true;
         }
+        getline(archivo, linea, ';');
     }
     return false;
 }
@@ -267,7 +294,8 @@ void cargarPartida(string nombreUsuario, string nombreUsuario2){
             }
         }
         seguir = juego(matriz, nombreUsuario, nombreUsuario2);
-        if(seguir == "N" || seguir == "n"){
+        if(seguir[0] == 'N' || seguir[0] == 'n'){
+            borrarPartida(nombrePartida);
             guardarPartida(matriz, nombreUsuario, nombreUsuario2);
         }
         else{
@@ -285,29 +313,55 @@ void iniciarPartida(vector<vector<int>>matriz ){
     string nombreUsuario2;
     string nombrePartida;
     string seguir;
+    string cargar;
     bool esta = true;
     archivo.open("partidas.txt", ios::app);
     cout<<"Ingrese nombre de usuario o pase a registrarse por favor si es usted muy amable."<<endl;
     cin>>nombreUsuario;
-    esta = chequear(nombreUsuario);
-    if(!esta){
+    if(!chequear(nombreUsuario)){
         crearUsuario(nombreUsuario);
         cout<<"No se encontro, usuario creado"<<endl;
     }
-    cout<<"Ingrese el nombre del segundo jugador"<<endl;
-    cin>>nombreUsuario2;
-    esta = chequear(nombreUsuario2);
-    if(!esta){
+    nombreUsuario2 = nombreUsuario;
+    while(nombreUsuario == nombreUsuario2){
+        cout<<"Ingrese el nombre del segundo jugador"<<endl;
+        cin>>nombreUsuario2;
+        if(nombreUsuario == nombreUsuario2){
+            cout<<"No se puede jugar contra uno mismo"<<endl;
+        }
+    }
+    if(!chequear(nombreUsuario2)){
         crearUsuario(nombreUsuario2);
         cout<<"No se encontro, usuario creado"<<endl;
     }
     nombrePartida= nombreUsuario + " vs " + nombreUsuario2;
     if(chequearPartida(nombrePartida)){
-        cargarPartida(nombreUsuario, nombreUsuario2);
+        while(cargar[0] != 'C' && cargar[0] != 'c' && cargar[0] != 'E' && cargar[0] != 'e'){
+            cout<<"Ya hay una partida con ese nombre, ¿Desea cargarla o eliminarla y crear una nueva?(C/E)"<<endl;
+            cin>>cargar;
+            if(cargar[0] == 'C' || cargar[0] == 'c'){
+                cargarPartida(nombreUsuario, nombreUsuario2);
+            }
+            else if(cargar[0] == 'E' || cargar[0] == 'e'){
+                borrarPartida(nombrePartida);
+                seguir = juego(matriz, nombreUsuario, nombreUsuario2);
+                if(seguir[0] == 'N' || seguir[0] == 'n'){
+                    borrarPartida(nombrePartida);
+                    guardarPartida(matriz, nombreUsuario, nombreUsuario2);
+                }
+                else{
+                    borrarPartida(nombrePartida);
+                }
+            }
+            else{
+                cout<<"Ingrese una opcion valida"<<endl;
+            }
+        }
     }
     else{
         seguir = juego(matriz, nombreUsuario, nombreUsuario2);
-        if(seguir == "N" || seguir == "n"){
+        if(seguir[0] == 'N' || seguir[0] == 'n'){
+            borrarPartida(nombrePartida);
             guardarPartida(matriz, nombreUsuario, nombreUsuario2);
         }
         else{
@@ -320,15 +374,24 @@ void verPuntuacion(){
     ifstream archivo;
     string nombre;
     string linea;
+    bool esta = false;
     cout<<"Ingrese su nombre"<<endl;
     cin>>nombre;
     archivo.open("usuarios.txt");
     while(getline(archivo, linea, ';')) {
+        getline(archivo, linea, ';');
         if(nombre==linea) {
             getline(archivo, linea, ';');
             cout<< "Sus puntos: " << linea<<endl;
             cout<<" "<<endl;
+            esta = true;
         }
+        else{
+            getline(archivo, linea, ';');
+        }
+    }
+    if(!esta){
+        cout<<"No se encontro el usuario"<<endl;
     }
 }
 
@@ -366,9 +429,9 @@ void verPodio(){
         }
     }
     
-    cout<<"1- " << nombrePrimero << " " << puntosPrimero << endl;
-    cout<<"2- " << nombreSegundo << " "<< puntosSegundo << endl;
-    cout<<"3- " << nombreTercero << " "<< puntosTercero << endl;
+    cout<<"1- " << nombrePrimero << " !puntitos= " << puntosPrimero << endl;
+    cout<<"2- " << nombreSegundo << " !puntitos= "<< puntosSegundo << endl;
+    cout<<"3- " << nombreTercero << " !puntitos= "<< puntosTercero << endl;
 }
 
 
@@ -415,16 +478,19 @@ int main(){
             bool esta = false;
             string nombreUsuario;
             string nombreUsuario2;
-            while(!esta){
+            while(!chequear(nombreUsuario)){
                 cout<<"Ingrese su nombre para acceder a sus datos"<<endl;
                 cin>>nombreUsuario;
-                esta = chequear(nombreUsuario);
+                if(!chequear(nombreUsuario)){
+                    cout<<"No existe un usuario con ese nombre"<<endl;
+                } 
             }
-            esta = false;
-            while(!esta){
+            while(!chequear(nombreUsuario2)){
                 cout<<"Ingrese su nombre para acceder a sus datos"<<endl;
                 cin>>nombreUsuario2;
-                esta = chequear(nombreUsuario2);
+                if(!chequear(nombreUsuario)){
+                    cout<<"No existe un usuario con ese nombre"<<endl;
+                } 
             }
             cargarPartida(nombreUsuario, nombreUsuario2);
             }

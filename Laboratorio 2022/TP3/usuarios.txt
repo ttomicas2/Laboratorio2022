@@ -1,10 +1,19 @@
 
-;tadeo;14;
-;manuel;3;
-;caz;2;
+;manuel;4;
+;caz;4;
 ;pato;0;
 ;enso;1;
 ;manso;0;
 ;menso;0;
-;a;0;
+;tadeo;21;
+;a;1;
 ;tade;0;
+;menual;0;
+;taedo;0;
+;5;0;
+;6;0;
+;Tadeo;1;
+;Caserez;0;
+;45;1;
+;23;0;
+;20;15;
