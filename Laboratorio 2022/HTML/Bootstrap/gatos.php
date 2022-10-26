@@ -14,19 +14,19 @@
           <a class="navbar-brand" href="index.php">
             <img src="PerroCats-naranja-azul.png" alt="" width="150" height="15%">
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="col align-self-centerlapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="col align-self-centerlapse navbar-col align-self-centerlapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
+                <a class="nav-link" href="index.php">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="perros.php">Perros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="gatos.php">Gatos</a>
+                <a class="nav-link active" aria-current="page" href="gatos.php">Gatos</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,7 +47,7 @@
 <br>
 <div class="container text-center">
   <div class="row align-items-start">
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
         <img src="Gatos/literaAzul.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
         <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -67,7 +67,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
       <img src="Gatos/palitoRaton.png" class="card-img-top" alt="...">
       <div class="card-body">
@@ -81,7 +81,7 @@
 <br>
 <div class="container text-center">
   <div class="row align-items-start">
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
         <img src="Gatos/literaAzul.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -91,7 +91,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
         <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -101,7 +101,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
       <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
       <div class="card-body">
@@ -115,7 +115,7 @@
 <br>
 <div class="container text-center">
   <div class="row align-items-start">
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
         <img src="Gatos/literaAzul.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -125,7 +125,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
         <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
         <div class="card-body">
@@ -135,7 +135,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col align-self-center">
       <div class="card" style="width: 18rem;">
       <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
       <div class="card-body">
@@ -146,3 +146,5 @@
     </div>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
