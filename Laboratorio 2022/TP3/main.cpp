@@ -4,6 +4,17 @@
 #include <sstream>
 using namespace std;
 
+bool llena(vector<vector<int>>matriz){
+    for(int i = 0; i < matriz.size(); i++ ){
+        for (int j = 0; j < matriz[i].size(); j++){
+            if(matriz[i][j] == 0){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 bool cuatroEnLinea(vector<vector<int>>matriz, int &jugadorGanador){
     int cantenFila = 0;
     int cantenColumna = 0;
@@ -177,7 +188,7 @@ void mostrarTablero(vector<vector<int>>matriz){
 string juego(vector<vector<int>>&matriz, string nombreUsuario, string nombreUsuario2){
     int jugadorGanador = 0;
     string seguir;
-    while(!cuatroEnLinea(matriz, jugadorGanador)){
+    while(!llena(matriz) && !cuatroEnLinea(matriz, jugadorGanador)){
         seguir = "ASheeee";
         mostrarTablero(matriz);
         int columna=0;
@@ -194,7 +205,7 @@ string juego(vector<vector<int>>&matriz, string nombreUsuario, string nombreUsua
                 i = -1;
             }
         }
-        if(!cuatroEnLinea(matriz, jugadorGanador)){
+        if(!llena(matriz) && !cuatroEnLinea(matriz, jugadorGanador)){
             mostrarTablero(matriz);
             columna=0;
             while(columna>15 || columna < 1){
@@ -226,7 +237,10 @@ string juego(vector<vector<int>>&matriz, string nombreUsuario, string nombreUsua
         }
     }
     mostrarTablero(matriz);
-    if(jugadorGanador==1){
+    if(llena){
+        cout<<"La matriz esta llena"<<endl;
+    }
+    else if(jugadorGanador==1){
         cout<<"Gano "<<nombreUsuario<<endl;
         sumarPuntuacion(nombreUsuario);
     }
