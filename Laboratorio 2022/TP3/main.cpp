@@ -189,7 +189,7 @@ string juego(vector<vector<int>>&matriz, string nombreUsuario, string nombreUsua
     int jugadorGanador = 0;
     string seguir;
     while(!llena(matriz) && !cuatroEnLinea(matriz, jugadorGanador)){
-        seguir = "ASheeee";
+        seguir = "Asheeee";
         mostrarTablero(matriz);
         int columna=0;
         while(columna>15 || columna < 1){
@@ -221,7 +221,7 @@ string juego(vector<vector<int>>&matriz, string nombreUsuario, string nombreUsua
                     i = -1;
                 }
             }
-            if(!cuatroEnLinea(matriz, jugadorGanador)){
+            if(!llena(matriz) && !cuatroEnLinea(matriz, jugadorGanador)){
                 mostrarTablero(matriz);
                 while(seguir[0] != 'S' && seguir[0] != 's' && seguir[0] != 'N' && seguir[0] != 'n'){
                     cout<<"¿Quieren seguir jugando?(S/N)"<<endl;
@@ -237,7 +237,7 @@ string juego(vector<vector<int>>&matriz, string nombreUsuario, string nombreUsua
         }
     }
     mostrarTablero(matriz);
-    if(llena){
+    if(llena(matriz)){
         cout<<"La matriz esta llena"<<endl;
     }
     else if(jugadorGanador==1){
