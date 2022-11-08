@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg bg-secondary">
+    <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #414042;">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <img src="PerroCats-naranja-azul.png" alt="" width="150" height="15%">
@@ -39,12 +39,12 @@
                             Info
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Envios</a></li>
-                            <li><a class="dropdown-item" href="#">Ayuda</a></li>
+                            <li><a class="dropdown-item" href="#Envios">Envios</a></li>
+                            <li><a class="dropdown-item" href="#Categorias">Categorias</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Nosotros</a></li>
+                            <li><a class="dropdown-item" href="#Nosotros">Nosotros</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -211,33 +211,52 @@
         </div>
     </div>
     <br>
-    <footer class="bd-footer bg-secondary">
+    <footer class="bd-footer " style="background-color: #414042;">
         <div class="container text-center">
             <div class="row aling-items-center">
                 <div class="col">
                     <a name="Envios">
-                        <h2>Envios</h2>
+                        <h2 class="text-white">Envios</h2>
                     </a>
                     <ul>
                         <li>
-                            <p>Correo Argentino</p>
+                            <p class="gris">Correo Argentino</p>
                         </li>
                         <li>
-
+                            <p class="gris">DHL</p>
+                        </li>
+                        <li>
+                            <p class="gris">FEDEX</p>
                         </li>
                     </ul>
                 </div>
                 <div class="col">
-                    <a name="Ayuda">
-                        <h2>Ayuda</h2>
+                    <a name="Categorias">
+                        <h2 class="text-white">Categorias</h2>
                     </a>
-
+                    <ul>
+                        <li>
+                            <a href="perros.php" class="links">Perros</a>
+                        </li>
+                        <li>
+                            <a href="gatos.php" class="links">Gatos</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col">
                     <a name="Nosotros">
-                        <h2>Nosotros</h2>
+                        <h2 class="text-white">Nosotros</h2>
                     </a>
-
+                    <ul>
+                        <li>
+                            <img src="logo-instagram.png" alt="" width="25px" height="25px">
+                            <a href="https://www.instagram.com/ttomicas/" class="links">@ttomicas</a>
+                        </li>
+                        <li>
+                            <img src="logo-instagram.png" alt="" width="25px" height="25px">
+                            <a href="https://www.instagram.com/tadecentrone/" class="links">@tadecentrone</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

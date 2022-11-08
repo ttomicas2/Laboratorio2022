@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg bg-secondary">
+    <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #414042;">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <img src="PerroCats-naranja-azul.png" alt="" width="150" height="15%">
@@ -39,12 +39,12 @@
                             Info
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Envios</a></li>
-                            <li><a class="dropdown-item" href="#">Ayuda</a></li>
+                            <li><a class="dropdown-item" href="Envios">Envios</a></li>
+                            <li><a class="dropdown-item" href="Categorias">Categorias</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Nosotros</a></li>
+                            <li><a class="dropdown-item" href="Nosotros">Nosotros</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -89,31 +89,31 @@
         <div class="row align-items-center">
             <div class="col align-self-center">
                 <div class="card" style="width: 21rem;">
-                    <img src="Gatos/literaAzul.png" class="card-img-top" alt="...">
+                    <img src="comida bulldog.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title" style="height: 4rem;">Bandeja Con Filtro Litera Cerrada Para Gato
-                            Premium Trixie</h5>
+                        <h5 class="card-title" style="height: 4rem;">Comida Bulldog Frances Royal Canin</h5>
+                        <p class="card-text">$8.850,00</p>
+                        <a href="#" class="btn btn-primary">Ver Producto</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col align-self-center">
+                <div class="card" style="width: 21rem;">
+                    <img src="bozal.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="height: 4rem;">Bozal Canasta Rast Ajustable</h5>
+                        <p class="card-text">$1.170,00</p>
+                        <a href="#" class="btn btn-primary">Ver Producto</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col align-self-center">
+                <div class="card" style="width: 21rem;">
+                    <img src="comida cordero.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="height: 4rem;">Alimento Old Prince Novel Cordero y Arroz Perro
+                            Adulto</h5>
                         <p class="card-text">$7.150,00</p>
-                        <a href="#" class="btn btn-primary">Ver Producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col align-self-center">
-                <div class="card" style="width: 21rem;">
-                    <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" style="height: 4rem;">Agility Cats Kitten (Gato)</h5>
-                        <p class="card-text">$7.242,00</p>
-                        <a href="#" class="btn btn-primary">Ver Producto</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col align-self-center">
-                <div class="card" style="width: 21rem;">
-                    <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" style="height: 4rem;">Agility Cats Kitten (Gato)</h5>
-                        <p class="card-text">$7.242,00</p>
                         <a href="#" class="btn btn-primary">Ver Producto</a>
                     </div>
                 </div>
@@ -123,37 +123,88 @@
         <div class="row align-items-center">
             <div class="col align-self-center">
                 <div class="card" style="width: 21rem;">
-                    <img src="Gatos/literaAzul.png" class="card-img-top" alt="...">
+                    <img src="chapita azul.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title" style="height: 4rem;">Bandeja Con Filtro Litera Cerrada Para Gato
-                            Premium Trixie</h5>
-                        <p class="card-text">$7.150,00</p>
+                        <h5 class="card-title" style="height: 4rem;">Chapita My Family Hueso De Aluminio Azul</h5>
+                        <p class="card-text">$2.000,00</p>
                         <a href="#" class="btn btn-primary">Ver Producto</a>
                     </div>
                 </div>
             </div>
             <div class="col align-self-center">
                 <div class="card" style="width: 21rem;">
-                    <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
+                    <img src="juguete naranja.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title" style="height: 4rem;">Agility Cats Kitten (Gato)</h5>
-                        <p class="card-text">$7.242,00</p>
+                        <h5 class="card-title" style="height: 4rem;">Juguete Mancuerna Squeaky Roja</h5>
+                        <p class="card-text">$735,00</p>
                         <a href="#" class="btn btn-primary">Ver Producto</a>
                     </div>
                 </div>
             </div>
             <div class="col align-self-center">
                 <div class="card" style="width: 21rem;">
-                    <img src="Gatos/AgilityCats-Kitten-300x300.png" class="card-img-top" alt="...">
+                    <img src="calm dog.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title" style="height: 4rem;">Agility Cats Kitten (Gato)</h5>
-                        <p class="card-text">$7.242,00</p>
+                        <h5 class="card-title" style="height: 4rem;">Calm Dog Royal Canin</h5>
+                        <p class="card-text">$3.130,00</p>
                         <a href="#" class="btn btn-primary">Ver Producto</a>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-        </script>
+    </div>
+    <br>
+    <footer class="bd-footer " style="background-color: #414042;">
+        <div class="container text-center">
+            <div class="row aling-items-center">
+                <div class="col">
+                    <a name="Envios">
+                        <h2 class="text-white">Envios</h2>
+                    </a>
+                    <ul>
+                        <li>
+                            <p class="gris">Correo Argentino</p>
+                        </li>
+                        <li>
+                            <p class="gris">DHL</p>
+                        </li>
+                        <li>
+                            <p class="gris">FEDEX</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <a name="Categorias">
+                        <h2 class="text-white">Categorias</h2>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="perros.php" class="links">Perros</a>
+                        </li>
+                        <li>
+                            <a href="gatos.php" class="links">Gatos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <a name="Nosotros">
+                        <h2 class="text-white">Nosotros</h2>
+                    </a>
+                    <ul>
+                        <li>
+                            <img src="logo-instagram.png" alt="" width="25px" height="25px">
+                            <a href="https://www.instagram.com/ttomicas/" class="links">@ttomicas</a>
+                        </li>
+                        <li>
+                            <img src="logo-instagram.png" alt="" width="25px" height="25px">
+                            <a href="https://www.instagram.com/tadecentrone/" class="links">@tadecentrone</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
 </body>
