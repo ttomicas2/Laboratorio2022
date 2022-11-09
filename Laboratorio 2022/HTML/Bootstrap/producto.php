@@ -51,7 +51,21 @@
             </div>
         </div>
     </nav>
-    <img class="rounded">
+    <div class="container text-left">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <h2 class="height: 4rem;">
+                    Alimento Nutrique Medium Young Adult - 12 Kg
+                </h2>
+                <p>
+
+                </p>
+            </div>
+        </div>
+    </div>
 
     </img>
     <footer class="bd-footer " style="background-color: #414042;">

@@ -39,12 +39,12 @@
                             Info
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="Envios">Envios</a></li>
-                            <li><a class="dropdown-item" href="Categorias">Categorias</a></li>
+                            <li><a class="dropdown-item" href="#Envios">Envios</a></li>
+                            <li><a class="dropdown-item" href="#Categorias">Categorias</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="Nosotros">Nosotros</a></li>
+                            <li><a class="dropdown-item" href="#Nosotros">Nosotros</a></li>
                         </ul>
                     </li>
                 </ul>
