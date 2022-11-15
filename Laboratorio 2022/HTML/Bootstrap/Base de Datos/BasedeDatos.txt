@@ -1,0 +1,93 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema PerroCats
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema PerroCats
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `PerroCats` ;
+USE `PerroCats` ;
+
+-- -----------------------------------------------------
+-- Table `PerroCats`.`Cliente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `PerroCats`.`Cliente` (
+  `idCliente` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  `Apellidos` VARCHAR(45) NULL,
+  `Mail` VARCHAR(45) NULL,
+  `Nacimiento` DATE NULL,
+  `Direccion` VARCHAR(45) NULL,
+  `contraseña` VARCHAR(45) NULL,
+  PRIMARY KEY (`idCliente`),
+  UNIQUE INDEX `idCliente_UNIQUE` (`idCliente` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `PerroCats`.`Pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `PerroCats`.`Pedidos` (
+  `idPedidos` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NULL,
+  `tipoEnvio` VARCHAR(45) NULL,
+  `Cliente_idCliente` INT NOT NULL,
+  PRIMARY KEY (`idPedidos`),
+  UNIQUE INDEX `idPedidos_UNIQUE` (`idPedidos` ASC) VISIBLE,
+  INDEX `fk_Pedidos_Cliente_idx` (`Cliente_idCliente` ASC) VISIBLE,
+  CONSTRAINT `fk_Pedidos_Cliente`
+    FOREIGN KEY (`Cliente_idCliente`)
+    REFERENCES `PerroCats`.`Cliente` (`idCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `PerroCats`.`Productos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `PerroCats`.`Productos` (
+  `idProductos` INT NOT NULL AUTO_INCREMENT,
+  `cantidad` INT NULL,
+  `Precio` DECIMAL NULL,
+  `categoria` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(45) NULL,
+  `nombre` VARCHAR(45) NULL,
+  PRIMARY KEY (`idProductos`),
+  UNIQUE INDEX `idProductos_UNIQUE` (`idProductos` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `PerroCats`.`Ticket`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `PerroCats`.`Ticket` (
+  `Pedidos_idPedidos` INT NOT NULL,
+  `Productos_idProductos` INT NOT NULL,
+  `cantidad` INT NULL,
+  `precio` DECIMAL NULL,
+  PRIMARY KEY (`Pedidos_idPedidos`, `Productos_idProductos`),
+  INDEX `fk_Pedidos_has_Productos_Productos1_idx` (`Productos_idProductos` ASC) VISIBLE,
+  INDEX `fk_Pedidos_has_Productos_Pedidos1_idx` (`Pedidos_idPedidos` ASC) VISIBLE,
+  CONSTRAINT `fk_Pedidos_has_Productos_Pedidos1`
+    FOREIGN KEY (`Pedidos_idPedidos`)
+    REFERENCES `PerroCats`.`Pedidos` (`idPedidos`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Pedidos_has_Productos_Productos1`
+    FOREIGN KEY (`Productos_idProductos`)
+    REFERENCES `PerroCats`.`Productos` (`idProductos`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
